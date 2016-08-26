@@ -1,0 +1,56 @@
+$main: #404257
+$secondary: #464960
+$background: #F5F5F5
+$highlight: #C5C6CD
+$lighter: #EDE3F4
+
+$white: #ffffff
+$purple: #BF9BD7
+$pink: #F491B2
+$orange: #FFA184
+$cyan: #4DB6AC
+$green: #81C784
+$red: #E57373
+$yellow: #FFB74D
+
+*
+	box-sizing: border-box
+
+html, body
+	margin: 0
+	padding: 0
+	font-family: "proxima-nova", Helvetica, sans-serif
+	
+nav
+	ul
+		margin: 0
+		padding: 0
+		list-style: none
+
+	li
+		display: inline-block
+
+	a
+		display: block
+		padding: 6px 12px
+		text-decoration: none
+
+.message
+	border: 1px solid $main
+	padding: 10px
+	color: #333
+
+
+.success
+	@extend .message
+	border-color: green
+
+
+.error
+	@extend .message
+	border-color: red
+
+
+.warning
+	@extend .message
+	border-color: yellow
