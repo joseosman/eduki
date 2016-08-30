@@ -39,7 +39,7 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
 
         <div class="pull-right">
 
-                                                                                
+                                                                                                                                                                                                
             <?= 
             \yii\bootstrap\ButtonDropdown::widget(
             [
@@ -52,11 +52,23 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
             ],
             'encodeLabels' => false,
             'items' => [            [
+                'url' => ['administrativos/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Administrativos') . '</i>',
+            ],            [
+                'url' => ['choferes/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Choferes') . '</i>',
+            ],            [
                 'url' => ['paises/index'],
                 'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Paises') . '</i>',
             ],            [
-                'url' => ['personas/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Personas') . '</i>',
+                'url' => ['estudiantes/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Estudiantes') . '</i>',
+            ],            [
+                'url' => ['padres/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Padres') . '</i>',
+            ],            [
+                'url' => ['profesores/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Profesores') . '</i>',
             ],]
             ],
             'options' => [
@@ -100,7 +112,7 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
 			    'attribute' => 'pais_id',
 			    'value' => function ($model) {
 			        if ($rel = $model->getPais()->one()) {
-			            return Html::a($rel->nombre, ['paises/view', 'id' => $rel->id,], ['data-pjax' => 0]);
+			            return Html::a($rel->id, ['paises/view', 'id' => $rel->id,], ['data-pjax' => 0]);
 			        } else {
 			            return '';
 			        }

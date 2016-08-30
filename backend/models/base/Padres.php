@@ -36,6 +36,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $profesion
  * @property string $nit
  * @property string $razon_social
+ * @property string $conyuge_id
  * @property integer $active
  * @property integer $deleted
  * @property integer $created_at
@@ -87,7 +88,7 @@ abstract class Padres extends \yii\db\ActiveRecord
         return [
             [['nombres', 'sex', 'pais_id', 'tel_emergencia', 'contacto_emergencia', 'tipo_doc_id', 'num_doc_id', 'email_trabajo'], 'required'],
             [['fec_nac'], 'safe'],
-            [['pais_id', 'estado_id', 'user_id', 'tipo_doc_id', 'active', 'deleted'], 'integer'],
+            [['pais_id', 'estado_id', 'user_id', 'tipo_doc_id', 'conyuge_id', 'active', 'deleted'], 'integer'],
             [['nombres', 'ap_pat', 'ap_mat'], 'string', 'max' => 60],
             [['sex'], 'string', 'max' => 1],
             [['ruta_foto'], 'string', 'max' => 2000],
@@ -101,7 +102,8 @@ abstract class Padres extends \yii\db\ActiveRecord
             [['tipo_doc_id'], 'exist', 'skipOnError' => true, 'targetClass' => TipoDocumentos::className(), 'targetAttribute' => ['tipo_doc_id' => 'id']],
             [['pais_id'], 'exist', 'skipOnError' => true, 'targetClass' => Paises::className(), 'targetAttribute' => ['pais_id' => 'id']],
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estados::className(), 'targetAttribute' => ['estado_id' => 'id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']]
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            //[['conyuge_id'], 'exist', 'skipOnError' => true, 'targetClass' => Padres::className(), 'targetAttribute' => ['conyuge_id' => 'id']]
         ];
     }
 
@@ -136,6 +138,7 @@ abstract class Padres extends \yii\db\ActiveRecord
             'profesion' => Yii::t('backend', 'Profesion'),
             'nit' => Yii::t('backend', 'Nit'),
             'razon_social' => Yii::t('backend', 'Razon Social'),
+            'conyuge_id' => Yii::t('backend', 'Conyuge'),
             'active' => Yii::t('backend', 'Active'),
             'created_at' => Yii::t('backend', 'Created At'),
             'created_by' => Yii::t('backend', 'Created By'),

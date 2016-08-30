@@ -27,7 +27,10 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Edit');
     <hr />
 
     <?php echo $this->render('_form', [
-    'model' => $model,
+        'model' => $model,
+        'estudiantesQuery' => $estudiantesQuery,
+        'usersQuery' => $usersQuery,
+        'modelsIdiomasEstudiantes' => $modelsIdiomasEstudiantes,
     ]); ?>
 
 </div>

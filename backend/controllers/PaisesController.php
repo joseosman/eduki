@@ -55,7 +55,6 @@ public function actionCreate()
             // validate all models
             $valid = $model->validate();
             $valid = Model::validateMultiple($modelsEstados) && $valid;
-			var_dump($valid);
 
             if ($valid) {
                 $transaction = \Yii::$app->db->beginTransaction();

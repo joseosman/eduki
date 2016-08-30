@@ -20,8 +20,8 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $updated_at
  * @property integer $updated_by
  *
- * @property \backend\models\Estudiantes $estudiante
  * @property \backend\models\Idiomas $idioma
+ * @property \backend\models\Estudiantes $estudiante
  * @property string $aliasModel
  */
 abstract class IdiomasEstudiantes extends \yii\db\ActiveRecord
@@ -61,8 +61,8 @@ abstract class IdiomasEstudiantes extends \yii\db\ActiveRecord
         return [
             [['idioma_id', 'estudiante_id'], 'required'],
             [['idioma_id', 'estudiante_id', 'deleted'], 'integer'],
-            [['estudiante_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estudiantes::className(), 'targetAttribute' => ['estudiante_id' => 'persona_id']],
-            [['idioma_id'], 'exist', 'skipOnError' => true, 'targetClass' => Idiomas::className(), 'targetAttribute' => ['idioma_id' => 'id']]
+            [['idioma_id'], 'exist', 'skipOnError' => true, 'targetClass' => Idiomas::className(), 'targetAttribute' => ['idioma_id' => 'id']],
+            [['estudiante_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estudiantes::className(), 'targetAttribute' => ['estudiante_id' => 'id']]
         ];
     }
 
@@ -86,17 +86,17 @@ abstract class IdiomasEstudiantes extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEstudiante()
+    public function getIdioma()
     {
-        return $this->hasOne(\backend\models\Estudiantes::className(), ['persona_id' => 'estudiante_id']);
+        return $this->hasOne(\backend\models\Idiomas::className(), ['id' => 'idioma_id']);
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdioma()
+    public function getEstudiante()
     {
-        return $this->hasOne(\backend\models\Idiomas::className(), ['id' => 'idioma_id']);
+        return $this->hasOne(\backend\models\Estudiantes::className(), ['id' => 'estudiante_id']);
     }
 
 

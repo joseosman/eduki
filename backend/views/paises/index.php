@@ -39,7 +39,7 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
 
         <div class="pull-right">
 
-                                                                                
+                                                                                                                                                                                                
             <?= 
             \yii\bootstrap\ButtonDropdown::widget(
             [
@@ -55,8 +55,20 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
                 'url' => ['estados/index'],
                 'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Estados') . '</i>',
             ],            [
-                'url' => ['personas/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Personas') . '</i>',
+                'url' => ['administrativos/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Administrativos') . '</i>',
+            ],            [
+                'url' => ['choferes/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Choferes') . '</i>',
+            ],            [
+                'url' => ['estudiantes/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Estudiantes') . '</i>',
+            ],            [
+                'url' => ['padres/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Padres') . '</i>',
+            ],            [
+                'url' => ['profesores/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Profesores') . '</i>',
             ],]
             ],
             'options' => [

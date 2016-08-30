@@ -30,7 +30,6 @@ use yii\helpers\StringHelper;
         <p>
             
 			<?= $form->field($model, 'nombre')->textInput(['maxlength' => true]) ?>
-            
         </p>
         <?php $this->endBlock(); ?>
         

@@ -21,8 +21,12 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $updated_at
  * @property integer $updated_by
  *
+ * @property \backend\models\Administrativos[] $administrativos
+ * @property \backend\models\Choferes[] $choferes
  * @property \backend\models\Estados[] $estados
- * @property \backend\models\Personas[] $personas
+ * @property \backend\models\Estudiantes[] $estudiantes
+ * @property \backend\models\Padres[] $padres
+ * @property \backend\models\Profesores[] $profesores
  * @property string $aliasModel
  */
 abstract class Paises extends \yii\db\ActiveRecord
@@ -89,6 +93,22 @@ abstract class Paises extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getAdministrativos()
+    {
+        return $this->hasMany(\backend\models\Administrativos::className(), ['pais_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChoferes()
+    {
+        return $this->hasMany(\backend\models\Choferes::className(), ['pais_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getEstados()
     {
         return $this->hasMany(\backend\models\Estados::className(), ['pais_id' => 'id']);
@@ -97,9 +117,25 @@ abstract class Paises extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPersonas()
+    public function getEstudiantes()
     {
-        return $this->hasMany(\backend\models\Personas::className(), ['pais_id' => 'id']);
+        return $this->hasMany(\backend\models\Estudiantes::className(), ['pais_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPadres()
+    {
+        return $this->hasMany(\backend\models\Padres::className(), ['pais_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProfesores()
+    {
+        return $this->hasMany(\backend\models\Profesores::className(), ['pais_id' => 'id']);
     }
 
 

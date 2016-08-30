@@ -132,7 +132,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'View');
     'attribute' => 'estudiante_id',
     'value' => function ($model) {
         if ($rel = $model->getEstudiante()->one()) {
-            return Html::a($rel->NombreCompleto, ['estudiantes/view', 'id' => $rel->id,], ['data-pjax' => 0]);
+            return Html::a($rel->fullnameinverted, ['estudiantes/view', 'id' => $rel->id,], ['data-pjax' => 0]);
         } else {
             return '';
         }

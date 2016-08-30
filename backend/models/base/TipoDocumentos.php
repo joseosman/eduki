@@ -19,7 +19,11 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $updated_at
  * @property integer $updated_by
  *
- * @property \backend\models\Personas[] $personas
+ * @property \backend\models\Administrativos[] $administrativos
+ * @property \backend\models\Choferes[] $choferes
+ * @property \backend\models\Estudiantes[] $estudiantes
+ * @property \backend\models\Padres[] $padres
+ * @property \backend\models\Profesores[] $profesores
  * @property string $aliasModel
  */
 abstract class TipoDocumentos extends \yii\db\ActiveRecord
@@ -82,9 +86,41 @@ abstract class TipoDocumentos extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getPersonas()
+    public function getAdministrativos()
     {
-        return $this->hasMany(\backend\models\Personas::className(), ['tipo_doc_id' => 'id']);
+        return $this->hasMany(\backend\models\Administrativos::className(), ['tipo_doc_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChoferes()
+    {
+        return $this->hasMany(\backend\models\Choferes::className(), ['tipo_doc_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEstudiantes()
+    {
+        return $this->hasMany(\backend\models\Estudiantes::className(), ['tipo_doc_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPadres()
+    {
+        return $this->hasMany(\backend\models\Padres::className(), ['tipo_doc_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProfesores()
+    {
+        return $this->hasMany(\backend\models\Profesores::className(), ['tipo_doc_id' => 'id']);
     }
 
 

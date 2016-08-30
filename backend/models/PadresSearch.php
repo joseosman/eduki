@@ -18,7 +18,7 @@ class PadresSearch extends Padres
 public function rules()
 {
 return [
-[['id', 'pais_id', 'estado_id', 'user_id', 'tipo_doc_id', 'active', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted'], 'integer'],
+[['id', 'pais_id', 'estado_id', 'user_id', 'tipo_doc_id', 'conyuge_id', 'active', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted'], 'integer'],
             [['nombres', 'ap_pat', 'ap_mat', 'fec_nac', 'sex', 'ruta_foto', 'tipo_sangre', 'email', 'tel_fijo', 'tel_movil', 'tel_emergencia', 'contacto_emergencia', 'num_doc_id', 'direc', 'email_trabajo', 'tel_fijo_trabajo', 'tel_movil_trabajo', 'profesion', 'nit', 'razon_social'], 'safe'],
 ];
 }
