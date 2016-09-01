@@ -2,10 +2,10 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-file-text-o fa-fw"></i> Reports</a>
+                            <a href="index.php"><i class="fa fa-file-text-o fa-fw"></i> Reports</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
@@ -24,6 +24,12 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="index.php?r=actividades/index">Actividades</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?r=administrativos/index">Administrstivos</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?r=choferes/index">Choferes</a>
                                 </li>
                                 <li>
                                     <a href="index.php?r=ciclos/index">Ciclos</a>
@@ -45,6 +51,9 @@
                                 </li>
                                 <li>
                                     <a href="index.php?r=paises/index">Paises</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?r=profesores/index">Profesores</a>
                                 </li>
                                 <li>
                                     <a href="index.php?r=religiones/index">Religiones</a>

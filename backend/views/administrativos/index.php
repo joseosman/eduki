@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /**
 * @var yii\web\View $this
 * @var yii\data\ActiveDataProvider $dataProvider
-    * @var backend\models\CursosSearch $searchModel
+    * @var backend\models\AdministrativosSearch $searchModel
 */
 
 
@@ -19,7 +19,7 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
     $actionColumnTemplateString = "{view} {update} {delete}";
 }
 ?>
-<div class="giiant-crud cursos-index">
+<div class="giiant-crud administrativos-index">
 
     <?php //             echo $this->render('_search', ['model' =>$searchModel]);
         ?>
@@ -28,7 +28,7 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
     <?php \yii\widgets\Pjax::begin(['id'=>'pjax-main', 'enableReplaceState'=> false, 'linkSelector'=>'#pjax-main ul.pagination a, th a', 'clientOptions' => ['pjax:success'=>'function(){alert("yo")}']]) ?>
 
     <h1>
-        <?= Yii::t('backend', 'Cursos') ?>        <small>
+        <?= Yii::t('backend', 'Administrativos') ?>        <small>
             List
         </small>
     </h1>
@@ -39,7 +39,7 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
 
         <div class="pull-right">
 
-                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                                                                                                                
             <?= 
             \yii\bootstrap\ButtonDropdown::widget(
             [
@@ -52,44 +52,35 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
             ],
             'encodeLabels' => false,
             'items' => [            [
-                'url' => ['actividades/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Actividades') . '</i>',
+                'url' => ['cargos/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Cargos') . '</i>',
             ],            [
-                'url' => ['adjuntos-actividades/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Adjuntos Actividades') . '</i>',
+                'url' => ['paises/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Paises') . '</i>',
             ],            [
-                'url' => ['asistencia/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Asistencia') . '</i>',
+                'url' => ['estados/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Estados') . '</i>',
             ],            [
-                'url' => ['ciclos-turnos-cursos-paralelos/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Ciclos Turnos Cursos Paralelos') . '</i>',
+                'url' => ['user/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'User') . '</i>',
             ],            [
-                'url' => ['ciclos/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Ciclos') . '</i>',
+                'url' => ['tipo-documentos/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Tipo Documentos') . '</i>',
             ],            [
-                'url' => ['estudiantes/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Estudiantes') . '</i>',
+                'url' => ['departamentos/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Departamentos') . '</i>',
             ],            [
-                'url' => ['estudiantes-actividades/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Estudiantes Actividades') . '</i>',
+                'url' => ['antecedentes-medicos/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Antecedentes Medicos') . '</i>',
             ],            [
-                'url' => ['facturas/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Facturas') . '</i>',
+                'url' => ['historial-medico/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Historial Medico') . '</i>',
             ],            [
-                'url' => ['facturas-detalle/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Facturas Detalle') . '</i>',
+                'url' => ['libros-prestamos/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Libros Prestamos') . '</i>',
             ],            [
-                'url' => ['horarios-profesores/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Horarios Profesores') . '</i>',
-            ],            [
-                'url' => ['planes-de-clases/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Planes De Clases') . '</i>',
-            ],            [
-                'url' => ['postulaciones/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Postulaciones') . '</i>',
-            ],            [
-                'url' => ['sistema-evaluacion/index'],
-                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Sistema Evaluacion') . '</i>',
+                'url' => ['llamadas-atencion/index'],
+                'label' => '<i class="glyphicon glyphicon-arrow-right">&nbsp;' . Yii::t('backend', 'Llamadas Atencion') . '</i>',
             ],]
             ],
             'options' => [
@@ -126,23 +117,23 @@ Yii::$app->view->params['pageButtons'] = Html::a('<span class="glyphicon glyphic
             },
             'contentOptions' => ['nowrap'=>'nowrap']
         ],
-			'nombre',
-			'nombre_abr',
+			'ap_pat',
+			'ap_mat',
+			'nombres',
+			'sex',
 			// generated by schmunk42\giiant\generators\crud\providers\RelationProvider::columnFormat
 			[
 			    'class' => yii\grid\DataColumn::className(),
-			    'attribute' => 'ciclo_id',
+			    'attribute' => 'pais_id',
 			    'value' => function ($model) {
-			        if ($rel = $model->getCiclo()->one()) {
-			            return Html::a($rel->nombre, ['ciclos/view', 'id' => $rel->id,], ['data-pjax' => 0]);
+			        if ($rel = $model->getPais()->one()) {
+			            return Html::a($rel->nombre, ['paises/view', 'id' => $rel->id,], ['data-pjax' => 0]);
 			        } else {
 			            return '';
 			        }
 			    },
 			    'format' => 'raw',
 			],
-			'orden_correlativo',
-			'deleted',
         ],
         ]); ?>
     </div>

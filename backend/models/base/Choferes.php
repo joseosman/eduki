@@ -22,7 +22,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $estado_id
  * @property string $tipo_sangre
  * @property string $email
- * @property string $ tel_fijo
+ * @property string $tel_fijo
  * @property string $tel_movil
  * @property string $tel_emergencia
  * @property string $contacto_emergencia
@@ -38,10 +38,10 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $updated_at
  * @property integer $updated_by
  *
- * @property \backend\models\TipoDocumentos $tipoDoc
  * @property \backend\models\Paises $pais
  * @property \backend\models\Estados $estado
  * @property \backend\models\User $user
+ * @property \backend\models\TipoDocumentos $tipoDoc
  * @property \backend\models\Transporte[] $transportes
  * @property string $aliasModel
  */
@@ -86,16 +86,16 @@ abstract class Choferes extends \yii\db\ActiveRecord
             [['nombres', 'ap_pat', 'ap_mat'], 'string', 'max' => 60],
             [['sex', 'categoria_licencia'], 'string', 'max' => 1],
             [['ruta_foto'], 'string', 'max' => 2000],
-            [['tipo_sangre', ' tel_fijo', 'tel_movil', 'tel_emergencia'], 'string', 'max' => 20],
+            [['tipo_sangre', 'tel_fijo', 'tel_movil', 'tel_emergencia'], 'string', 'max' => 20],
             [['email'], 'string', 'max' => 255],
             [['contacto_emergencia'], 'string', 'max' => 200],
             [['num_doc_id'], 'string', 'max' => 30],
             [['direc'], 'string', 'max' => 300],
             [['num_licencia'], 'string', 'max' => 15],
-            [['tipo_doc_id'], 'exist', 'skipOnError' => true, 'targetClass' => TipoDocumentos::className(), 'targetAttribute' => ['tipo_doc_id' => 'id']],
             [['pais_id'], 'exist', 'skipOnError' => true, 'targetClass' => Paises::className(), 'targetAttribute' => ['pais_id' => 'id']],
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estados::className(), 'targetAttribute' => ['estado_id' => 'id']],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']]
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['tipo_doc_id'], 'exist', 'skipOnError' => true, 'targetClass' => TipoDocumentos::className(), 'targetAttribute' => ['tipo_doc_id' => 'id']]
         ];
     }
 
@@ -116,7 +116,7 @@ abstract class Choferes extends \yii\db\ActiveRecord
             'estado_id' => Yii::t('backend', 'Estado ID'),
             'tipo_sangre' => Yii::t('backend', 'Tipo Sangre'),
             'email' => Yii::t('backend', 'Email'),
-            ' tel_fijo' => Yii::t('backend', 'Tel Fijo'),
+            'tel_fijo' => Yii::t('backend', 'Tel Fijo'),
             'tel_movil' => Yii::t('backend', 'Tel Movil'),
             'tel_emergencia' => Yii::t('backend', 'Tel Emergencia'),
             'contacto_emergencia' => Yii::t('backend', 'Contacto Emergencia'),
@@ -132,14 +132,6 @@ abstract class Choferes extends \yii\db\ActiveRecord
             'updated_by' => Yii::t('backend', 'Updated By'),
             'deleted' => Yii::t('backend', 'Deleted'),
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getTipoDoc()
-    {
-        return $this->hasOne(\backend\models\TipoDocumentos::className(), ['id' => 'tipo_doc_id']);
     }
 
     /**
@@ -164,6 +156,14 @@ abstract class Choferes extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(\backend\models\User::className(), ['id' => 'user_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTipoDoc()
+    {
+        return $this->hasOne(\backend\models\TipoDocumentos::className(), ['id' => 'tipo_doc_id']);
     }
 
     /**

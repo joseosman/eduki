@@ -11,6 +11,36 @@ use \backend\models\base\Administrativos as BaseAdministrativos;
 class Administrativos extends BaseAdministrativos
 {
 
+    public $archivo;
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['nombres', 'sex', 'pais_id', 'tel_emergencia', 'contacto_emergencia', 'tipo_doc_id', 'num_doc_id', 'email_trabajo'], 'required'],
+            [['fec_nac', 'fec_ini'], 'safe'],
+            [['pais_id', 'estado_id', 'user_id', 'tipo_doc_id', 'departamento_id', 'cargo_id', 'active', 'deleted'], 'integer'],
+            [['archivo'], 'file'],
+            [['nombres', 'ap_pat', 'ap_mat'], 'string', 'max' => 60],
+            [['sex'], 'string', 'max' => 1],
+            [['ruta_foto'], 'string', 'max' => 2000],
+            [['tipo_sangre', 'tel_fijo', 'tel_movil', 'tel_emergencia', 'tel_fijo_trabajo', 'tel_movil_trabajo'], 'string', 'max' => 20],
+            [['email', 'email_trabajo', 'ubicacion_oficina'], 'string', 'max' => 255],
+            [['contacto_emergencia'], 'string', 'max' => 200],
+            [['num_doc_id', 'nombre_afp'], 'string', 'max' => 30],
+            [['direc'], 'string', 'max' => 300],
+            [['numero_afp'], 'string', 'max' => 15],
+            [['cargo_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cargos::className(), 'targetAttribute' => ['cargo_id' => 'id']],
+            [['pais_id'], 'exist', 'skipOnError' => true, 'targetClass' => Paises::className(), 'targetAttribute' => ['pais_id' => 'id']],
+            [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estados::className(), 'targetAttribute' => ['estado_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['tipo_doc_id'], 'exist', 'skipOnError' => true, 'targetClass' => TipoDocumentos::className(), 'targetAttribute' => ['tipo_doc_id' => 'id']],
+            [['departamento_id'], 'exist', 'skipOnError' => true, 'targetClass' => Departamentos::className(), 'targetAttribute' => ['departamento_id' => 'id']]
+        ];
+    }
+
 	/**
      * @inheritdoc
      */
@@ -24,6 +54,7 @@ class Administrativos extends BaseAdministrativos
             'fec_nac' => Yii::t('backend', 'Fecha Nacimiento'),
             'sex' => Yii::t('backend', 'Sexo'),
             'ruta_foto' => Yii::t('backend', 'Foto'),
+            'archivo' => Yii::t('backend', 'Foto'),
             'pais_id' => Yii::t('backend', 'Pais'),
             'estado_id' => Yii::t('backend', 'Estado'),
             'tipo_sangre' => Yii::t('backend', 'Tipo Sangre'),
