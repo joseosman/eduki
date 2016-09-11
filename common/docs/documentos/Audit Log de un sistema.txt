@@ -1,0 +1,12 @@
+Audit Log de un sistema
+
+1. Fecha y Hora / Timestamp
+2. Servidor de Base de Datos donde se modificó
+3. Nombre de usuario
+4. Servidor web desde donde se conecto el usuario
+5. ID de coneccion
+6. Numero de secuencia
+7. La acción realizada (Coneccion, Escritura, Consulta, Edicion, Eliminacion, Desconeccion)
+8. Nombre de la Base de Datos
+9. Consulta SQL Ejecutada con valores
+

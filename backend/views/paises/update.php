@@ -26,8 +26,9 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Edit');
 
     <hr />
 
-    <?php echo $this->render('_form', [
-    'model' => $model,
+    <?= $this->render('_form', [
+        'model' => $model,
+        'modelsEstados' => $modelsEstados,
     ]); ?>
 
 </div>
